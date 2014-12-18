@@ -15,12 +15,12 @@ Observation = namedtuple('Observation', ['vector', 'klass'], verbose = False)
 decision_tree_root = None
 
 class FeatureNode:
-    def __init__(self, feature_number, child_nodes = list()):
+    def __init__(self, feature_number):
         
         #By doing this I am keeping the list of features
         self.feature_number = feature_number
             
-        self.child_nodes = child_nodes
+        self.child_nodes = list()
     
     def add_parent(self, parent_node):
         self.parent_node = parent_node
@@ -41,8 +41,7 @@ class FeatureNode:
         feature_value = vector[self.feature_number]
         
         count+=1
-        if count > 10:
-            return None
+        
         for i in range(len(self.child_nodes)):
             if feature_value <= self.child_nodes[i].feature_value or self.feature_number == -1:
                 return self.child_nodes[i].child_node.get_class(vector, count)
@@ -192,6 +191,7 @@ def train(observations_list):
             
             if not new_leaf_node.homogeneous:
                 heterogeneous_leaves.append(new_leaf_node)
+        
         
         del smpl_observations
     
