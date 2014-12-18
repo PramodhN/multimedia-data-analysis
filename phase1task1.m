@@ -33,11 +33,11 @@ function phase1task1(dir, resolution, window_size, shift_length)
             if isempty(isEpidemic)            
 
                 m = csvread(file_name, 1, 2); % Read the data file
-                unique(m)
+        
                 nq_matrix = normalize_matrix(m); % Normalized matrix
-                
-                nq_matrix = quantize_matrix(nq_matrix, point, quant, resolution); % nq_matrix is now quantized
 
+                nq_matrix = quantize_matrix(nq_matrix, point, quant, resolution); % nq_matrix is now quantized
+            
                 L = strsplit(L, '.');
                 L = L{1};
                 % Suppose L = '1.csv', it is changed to L = '1' (so as to

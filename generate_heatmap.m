@@ -26,7 +26,6 @@ function generate_heatmap(choice, c_graph_file, file_name, map_row, map_col, map
     end
     
     simulation_file = strcat(epidemic_file, file_name); % Set name for simulation file
-    
     if choice == 'a' || choice == 'b'
         heat_map = get_nq_matrix(simulation_file, resolution); % Plot the normalized quantized matrix
     else
@@ -40,7 +39,7 @@ function generate_heatmap(choice, c_graph_file, file_name, map_row, map_col, map
     
         B = unique(A(:,2)); % Find the time stamps in word file
     
-        c_graph = xlsread(c_graph_file); % Read the connectivity graph 
+        c_graph = csvread(c_graph_file,1,1); % Read the connectivity graph 
     
         heat_map = 0;
         i = 1;

@@ -10,7 +10,7 @@ function phase1task2(dir, c_graph_file, weight)
     
     files_list = ls(dir);
         
-    c_graph = xlsread(c_graph_file); % Read connectivity graph
+    c_graph = csvread(c_graph_file,1,1); % Read connectivity graph
     
     for loop = 3 : size(files_list,1) % loop starts from 3 becase 1 and 2 have '.' and '..' respectively from ls()
         

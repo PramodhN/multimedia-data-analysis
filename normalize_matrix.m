@@ -4,6 +4,7 @@ function normal_matrix = normalize_matrix(m)
     maxm = ones(rows,cols) * max(max(m)); % Matrix of all max values in 'm'
     minm = ones(rows,cols) * min(min(m)); % Matrix of all min values in 'm'
     if maxm == minm
-        maxm = maxm + 0.001;
+        maxm = maxm + 0.0001;
+    end
     normal_matrix = (m-minm)./(maxm-minm);
 end

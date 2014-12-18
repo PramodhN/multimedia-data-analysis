@@ -1,7 +1,7 @@
 function similarity = AMatrixCalculation(f1, f2, connectivity_graph_file)
 
 	%1. Read the connectivity graph.
-    c_graph = xlsread(connectivity_graph_file);
+    c_graph = csvread(connectivity_graph_file,1,1);
     paths_matrix = shortest_path_calculation(c_graph, 3);
 
 	%2. Read files that contain the words
